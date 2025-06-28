@@ -35,33 +35,32 @@ const Booking: React.FC = () => {
     e.preventDefault();
     
     try {
-      // Send data to Zapier webhook
-      const response = await fetch('https://hooks.zapier.com/hooks/catch/22985325/ubz3l1p/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
+      // Create FormData object to send as form-encoded data
+      const formDataToSend = new FormData();
+      Object.keys(formData).forEach(key => {
+        formDataToSend.append(key, formData[key as keyof FormData]);
       });
 
-      if (response.ok) {
-        // Show success message
-        alert('Thank you for your booking request! We will contact you within 24 hours with a quote.');
-        
-        // Reset form
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          date: '',
-          from: '',
-          to: '',
-          service: '',
-          message: ''
-        });
-      } else {
-        throw new Error('Failed to submit form');
-      }
+      // Send data to Zapier webhook as form data (avoids CORS issues)
+      const response = await fetch('https://hooks.zapier.com/hooks/catch/22985325/ubz3l1p/', {
+        method: 'POST',
+        body: formDataToSend
+      });
+
+      // Show success message
+      alert('Thank you for your booking request! We will contact you within 24 hours with a quote.');
+      
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        date: '',
+        from: '',
+        to: '',
+        service: '',
+        message: ''
+      });
     } catch (error) {
       console.error('Error submitting form:', error);
       alert('There was an error submitting your request. Please try again or contact us directly.');
