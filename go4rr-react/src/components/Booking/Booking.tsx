@@ -42,7 +42,7 @@ const Booking: React.FC = () => {
       });
 
       // Send data to Zapier webhook as form data (avoids CORS issues)
-      const response = await fetch('https://hooks.zapier.com/hooks/catch/22985325/ubz3l1p/', {
+      await fetch('https://hooks.zapier.com/hooks/catch/22985325/ubz3l1p/', {
         method: 'POST',
         body: formDataToSend
       });
