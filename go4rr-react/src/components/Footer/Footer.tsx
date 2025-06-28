@@ -37,19 +37,19 @@ const Footer: React.FC = () => {
           <div className="footer-section">
             <h4>Services</h4>
             <ul>
-              <li><a href="#">Residential Moving</a></li>
-              <li><a href="#">Luxury Furniture</a></li>
-              <li><a href="#">Long Distance</a></li>
-              <li><a href="#">Packing Services</a></li>
+              <li><a href="#services" onClick={(e) => handleLinkClick(e, '#services')}>Residential Moving</a></li>
+              <li><a href="#services" onClick={(e) => handleLinkClick(e, '#services')}>Luxury Furniture</a></li>
+              <li><a href="#services" onClick={(e) => handleLinkClick(e, '#services')}>Long Distance</a></li>
+              <li><a href="#services" onClick={(e) => handleLinkClick(e, '#services')}>Packing Services</a></li>
             </ul>
           </div>
           <div className="footer-section">
             <h4>Follow Us</h4>
             <div className="social-links">
-              <a href="#" aria-label="Facebook">📘</a>
-              <a href="#" aria-label="Twitter">🐦</a>
-              <a href="#" aria-label="Instagram">📷</a>
-              <a href="#" aria-label="LinkedIn">💼</a>
+              <a href="https://facebook.com" aria-label="Facebook" target="_blank" rel="noopener noreferrer">📘</a>
+              <a href="https://twitter.com" aria-label="Twitter" target="_blank" rel="noopener noreferrer">🐦</a>
+              <a href="https://instagram.com" aria-label="Instagram" target="_blank" rel="noopener noreferrer">📷</a>
+              <a href="https://linkedin.com" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">💼</a>
             </div>
           </div>
         </div>
